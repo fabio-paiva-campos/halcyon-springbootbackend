@@ -3,9 +3,9 @@ package net.javaguides.springboot.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import net.javaguides.springboot.model.Estado;
+import net.javaguides.springboot.model.Artista;
 
 @Repository
-public interface EstadoRepository extends JpaRepository<Estado, Long>{
+public interface ArtistaRepository extends JpaRepository<Artista, Long>{
 
 }

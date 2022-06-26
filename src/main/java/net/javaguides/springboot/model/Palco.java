@@ -8,26 +8,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "estados")
-public class Estado {
+@Table(name = "palcos")
+public class Palco {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name = "estado")
-	private String estado;
-
-	@Column(name = "sigla")
-	private String sigla;
+	@Column(name = "palco")
+	private String palco;
 	
-	public Estado() {
+	public Palco() {
 		
 	}
 	
-	public Estado(String estado) {
+	public Palco(String palco) {
 		super();
-		this.estado = estado;
+		this.palco = palco;
 	}
 	public long getId() {
 		return id;
@@ -35,16 +32,10 @@ public class Estado {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getEstado() {
-		return estado;
+	public String getPalco() {
+		return palco;
 	}
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-	public String getSigla() {
-		return sigla;
-	}
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
+	public void setPalco(String palco) {
+		this.palco = palco;
 	}
 }
