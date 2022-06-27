@@ -53,7 +53,8 @@ public class ArtistaController {
 		Artista artista = artistaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Artista nao existe:" + id));
 		
 		artista.setArtista(artistaDetails.getArtista());
-		artista.setPalco(artistaDetails.getPalco());
+		artista.setFilaPos(artistaDetails.getFilaPos());
+		artista.setTempo(artistaDetails.getTempo());
 		
 		Artista updatedArtista = artistaRepository.save(artista);
 		return ResponseEntity.ok(updatedArtista);

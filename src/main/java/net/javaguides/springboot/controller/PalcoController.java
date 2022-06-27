@@ -41,7 +41,7 @@ public class PalcoController {
 	}
 	
 	// get palco by id rest api
-	@GetMapping("/palcoss/{id}")
+	@GetMapping("/palcos/{id}")
 	public ResponseEntity<Palco> getEstadoById(@PathVariable Long id) {
 		Palco estado = palcoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Estado nao existe:" + id));
 		return ResponseEntity.ok(estado);

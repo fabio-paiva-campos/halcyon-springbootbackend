@@ -26,15 +26,19 @@ public class Palco {
 		super();
 		this.palco = palco;
 	}
+
 	public long getId() {
 		return id;
 	}
+	
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getPalco() {
 		return palco;
 	}
+	
 	public void setPalco(String palco) {
 		this.palco = palco;
 	}
