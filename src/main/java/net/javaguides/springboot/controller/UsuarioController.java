@@ -54,12 +54,13 @@ public class UsuarioController {
 		
 		usuario.setUsuario(usuarioDetails.getUsuario());
 		usuario.setSenha(usuarioDetails.getSenha());
+		usuario.setPapel(usuarioDetails.getPapel());
 		
 		Usuario updatedUsuario = usuarioRepository.save(usuario);
 		return ResponseEntity.ok(updatedUsuario);
 	}
 	
-	// delete estado rest api
+	// delete usuario rest api
 	@DeleteMapping("/usuarioos/{id}")
 	public ResponseEntity<Map<String, Boolean>> deleteEstado(@PathVariable Long id){
 		Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Usuario nao existe:" + id));

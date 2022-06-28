@@ -55,6 +55,7 @@ public class ArtistaController {
 		artista.setArtista(artistaDetails.getArtista());
 		artista.setFilaPos(artistaDetails.getFilaPos());
 		artista.setTempo(artistaDetails.getTempo());
+		artista.setPalco(artistaDetails.getPalco());
 		
 		Artista updatedArtista = artistaRepository.save(artista);
 		return ResponseEntity.ok(updatedArtista);
