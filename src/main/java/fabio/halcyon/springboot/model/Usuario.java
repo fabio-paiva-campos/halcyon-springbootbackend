@@ -8,6 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+<<<<<<< HEAD:src/main/java/fabio/halcyon/springboot/model/Usuario.java
+=======
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+>>>>>>> 5ba764fa506d12880094601eb47f6c7df885698b:src/main/java/net/javaguides/springboot/model/Usuario.java
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
@@ -21,6 +27,8 @@ public class Usuario {
 
 	@Column(name = "senha")
 	private String senha;
+
+	public static final PasswordEncoder encoder = new BCryptPasswordEncoder();
 
 	@ManyToOne
 	private Papel papel;
@@ -55,7 +63,7 @@ public class Usuario {
 	}
 
 	public void setSenha(String senha) {
-		this.senha = senha;
+		this.senha = encoder.encode(senha);
 	}
 
 	public Papel getPapel() {
