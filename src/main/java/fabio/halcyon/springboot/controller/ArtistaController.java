@@ -28,26 +28,22 @@ public class ArtistaController {
 	@Autowired
 	private ArtistaRepository artistaRepository;
 	
-	// get all artistas
 	@GetMapping("/artistas")
 	public List<Artista> getAllArtistas(){
 		return artistaRepository.findAll();
 	}		
 	
-	// create artista rest api
 	@PostMapping("/artistas")
 	public Artista createArtista(@RequestBody Artista artista) {
 		return artistaRepository.save(artista);
 	}
 	
-	// get artista by id rest api
 	@GetMapping("/artistas/{id}")
 	public ResponseEntity<Artista> getArtistaById(@PathVariable Long id) {
 		Artista artista = artistaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Artista nao existe:" + id));
 		return ResponseEntity.ok(artista);
 	}
 	
-	// update artista rest api
 	@PutMapping("/artistas/{id}")
 	public ResponseEntity<Artista> updateCidade(@PathVariable Long id, @RequestBody Artista artistaDetails){
 		Artista artista = artistaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Artista nao existe:" + id));
@@ -61,7 +57,6 @@ public class ArtistaController {
 		return ResponseEntity.ok(updatedArtista);
 	}
 	
-	// delete artista rest api
 	@DeleteMapping("/artistas/{id}")
 	public ResponseEntity<Map<String, Boolean>> deleteArtista(@PathVariable Long id){
 		Artista artista = artistaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Artista nao existe:" + id));

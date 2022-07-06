@@ -28,26 +28,22 @@ public class PapelController {
 	@Autowired
 	private PapelRepository papelRepository;
 	
-	// get all papeis
 	@GetMapping("/papeis")
 	public List<Papel> getAllPapeis(){
 		return papelRepository.findAll();
 	}		
 	
-	// create papel rest api
 	@PostMapping("/papeis")
 	public Papel createPapel(@RequestBody Papel papel) {
 		return papelRepository.save(papel);
 	}
 	
-	// get papel by id rest api
 	@GetMapping("/papeis/{id}")
 	public ResponseEntity<Papel> getPapelById(@PathVariable Long id) {
 		Papel papel = papelRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Papel nao existe:" + id));
 		return ResponseEntity.ok(papel);
 	}
 	
-	// update papel rest api
 	@PutMapping("/papeis/{id}")
 	public ResponseEntity<Papel> updatePapel(@PathVariable Long id, @RequestBody Papel papelDetails){
 		Papel papel = papelRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Papel nao existe:" + id));
@@ -58,7 +54,6 @@ public class PapelController {
 		return ResponseEntity.ok(updatedPapel);
 	}
 	
-	// delete papel rest api
 	@DeleteMapping("/papeis/{id}")
 	public ResponseEntity<Map<String, Boolean>> deletePapel(@PathVariable Long id){
 		Papel papel = papelRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Papel nao existe:" + id));

@@ -28,26 +28,22 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	// get all usuarios
 	@GetMapping("/usuarios")
 	public List<Usuario> getAllUsuarios(){
 		return usuarioRepository.findAll();
 	}		
 	
-	// create usuario rest api
 	@PostMapping("/usuarios")
 	public Usuario createUsuario(@RequestBody Usuario usuario) {
 		return usuarioRepository.save(usuario);
 	}
 	
-	// get usuario by id rest api
 	@GetMapping("/usuarios/{id}")
 	public ResponseEntity<Usuario> getUsuarioById(@PathVariable Long id) {
 		Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Usuario nao existe:" + id));
 		return ResponseEntity.ok(usuario);
 	}
 	
-	// update usuario rest api
 	@PutMapping("/usuarios/{id}")
 	public ResponseEntity<Usuario> updateUsuario(@PathVariable Long id, @RequestBody Usuario usuarioDetails){
 		Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Usuario nao existe:" + id));
@@ -60,7 +56,6 @@ public class UsuarioController {
 		return ResponseEntity.ok(updatedUsuario);
 	}
 	
-	// delete usuario rest api
 	@DeleteMapping("/usuarioos/{id}")
 	public ResponseEntity<Map<String, Boolean>> deleteUsuario(@PathVariable Long id){
 		Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Usuario nao existe:" + id));
