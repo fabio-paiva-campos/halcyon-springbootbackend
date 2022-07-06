@@ -62,7 +62,7 @@ public class UsuarioController {
 	
 	// delete usuario rest api
 	@DeleteMapping("/usuarioos/{id}")
-	public ResponseEntity<Map<String, Boolean>> deleteEstado(@PathVariable Long id){
+	public ResponseEntity<Map<String, Boolean>> deleteUsuario(@PathVariable Long id){
 		Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Usuario nao existe:" + id));
 		
 		usuarioRepository.delete(usuario);
