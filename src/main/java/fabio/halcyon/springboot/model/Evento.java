@@ -9,32 +9,32 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "artistas")
-public class Artista {
+@Table(name = "eventos")
+public class Evento {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name = "artista")
-	private String artista;
+	@Column(name = "evento")
+	private String evento;
 
 	@Column(name = "filaPos")
-	private String filaPos;
+	private long filaPos;
 
 	@Column(name = "tempo")
-	private String tempo;
+	private long tempo;
 
 	@ManyToOne
 	private Palco palco;
 
-	public Artista() {
+	public Evento() {
 		
 	}
 	
-	public Artista(String artista) {
+	public Evento(String evento) {
 		super();
-		this.artista = artista;
+		this.evento = evento;
 	}
 
 	public long getId() {
@@ -45,27 +45,27 @@ public class Artista {
 		this.id = id;
 	}
 
-	public String getArtista() {
-		return artista;
+	public String getEvento() {
+		return evento;
 	}
 
-	public void setArtista(String artista) {
-		this.artista = artista;
+	public void setEvento(String evento) {
+		this.evento = evento;
 	}
 
-	public String getFilaPos() {
+	public Long getFilaPos() {
 		return filaPos;
 	}
 
-	public void setFilaPos(String filaPos) {
+	public void setFilaPos(Long filaPos) {
 		this.filaPos = filaPos;
 	}
 
-	public String getTempo() {
+	public Long getTempo() {
 		return tempo;
 	}
 
-	public void setTempo (String tempo) {
+	public void setTempo (Long tempo) {
 		this.tempo = tempo;
 	}
 
